@@ -5,16 +5,22 @@ import HeaderComponent from '../components/Header/HeaderComponent';
 import {images} from '../assets/ImagesURI';
 import ButtonComponent from '../components/Button/ButtonComponent';
 import Input from '../components/TextInput/Input';
+// import SmartechBaseReact from('smartech-base-react-native');
+
 
 const OnBoarding = ({navigation}) => {
  
   const eventName = "homeScreen"
   const properties = {}
+
+  const SmartechAppInboxReact = require('smartech-appinbox-react-native');
   
   const sendEvent = () => {
     NativeModules.HanselTrackerRn.logEvent(eventName,"fbs",properties,(hanselData) => {
-      if(!properties) {properties = {};}
+      if(!properties) {properties = {};} 
       mergedProperties = Object.assign(properties, hanselData); 
+
+     
   
   }); 
   }
@@ -60,3 +66,4 @@ const OnBoarding = ({navigation}) => {
 };
 
 export default OnBoarding;
+

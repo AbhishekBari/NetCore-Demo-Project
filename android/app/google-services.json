@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "35323106180",
+    "project_id": "securoserv-c3e88",
+    "storage_bucket": "securoserv-c3e88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35323106180:android:a141f9310667e8c46dc3d1",
+        "android_client_info": {
+          "package_name": "com.securoserv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35323106180-kk1e026vcnvmrvjv8qmjk659qcr65d45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIDcgv8MFEhdEARC4y5yE7eJp_D7jZP7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35323106180-kk1e026vcnvmrvjv8qmjk659qcr65d45.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

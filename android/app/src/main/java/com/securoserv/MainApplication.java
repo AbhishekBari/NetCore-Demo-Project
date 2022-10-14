@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 
 import com.facebook.react.PackageList;
@@ -14,14 +15,22 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.config.ReactFeatureFlags;
 import com.facebook.react.uimanager.util.ReactFindViewUtil;
 import com.facebook.soloader.SoLoader;
+
 import com.netcore.android.Smartech;
+import com.netcore.android.logger.SMTDebugLevel;
+
+import com.netcore.android.smartechpush.SmartPush;
+
 import com.securoserv.newarchitecture.MainApplicationReactNativeHost;
+
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Set;
+
 
 import io.hansel.core.logger.HSLLogLevel;
 import io.hansel.react.HanselRn;
@@ -71,12 +80,17 @@ public class MainApplication extends Application implements ReactApplication {
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
 
-      Smartech.getInstance(new WeakReference<>(this)).initializeSdk(this);
+    Smartech smartech = Smartech.getInstance(new WeakReference<>(this.getApplicationContext()));
+    smartech.initializeSdk(this);
+
+    smartech.setDebugLevel(SMTDebugLevel.Level.VERBOSE);
 
       HSLLogLevel.all.setEnabled(true);
       HSLLogLevel.mid.setEnabled(true);
       HSLLogLevel.debug.setEnabled(true);
 
+
+    try {  SmartPush smartPush = SmartPush.getInstance(new WeakReference<>(this));  smartPush.fetchAlreadyGeneratedTokenFromFCM(); } catch (Exception e) {   }
 
 
     Set<String> nativeIdSet = new HashSet<>();
@@ -122,6 +136,7 @@ public class MainApplication extends Application implements ReactApplication {
         }
       }
     }, nativeIdSet);
+
 
   }
 

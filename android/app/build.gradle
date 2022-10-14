@@ -268,8 +268,12 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     implementation 'com.netcore.android:smartech-sdk:3.1.37'
+    implementation 'com.netcore.android:smartech-nudges:8.8.12'
 
-    implementation 'com.netcore.android:smartech-nudges:8.8.9'
+    api "com.netcore.android:smartech-sdk:${SMARTECH_BASE_SDK_VERSION}"
+    api "com.netcore.android:smartech-push:${SMARTECH_PUSH_SDK_VERSION}"
+    api "com.netcore.android:smartech-appinbox:${SMARTECH_APPINBOX_SDK_VERSION}"
+    implementation 'com.google.firebase:firebase-messaging:23.0.6'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
@@ -317,7 +321,8 @@ task copyDownloadableDepsToLibs(type: Copy) {
     into 'libs'
 }
 
-apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle")
+apply plugin: 'com.google.gms.google-services'; applyNativeModulesAppBuildGradle(project)
 
 def isNewArchitectureEnabled() {
     // To opt-in for the New Architecture, you can either:
