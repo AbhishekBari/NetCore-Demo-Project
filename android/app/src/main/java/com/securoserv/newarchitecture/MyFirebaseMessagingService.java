@@ -1,6 +1,7 @@
 package com.securoserv.newarchitecture;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -18,7 +19,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken(String s) {
         super.onNewToken(s);
+        Log.d("new token", s);
         SmartPush.getInstance(new WeakReference<Context>(this)).setDevicePushToken(s);
+
 
     }
 

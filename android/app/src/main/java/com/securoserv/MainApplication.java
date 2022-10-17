@@ -83,6 +83,8 @@ public class MainApplication extends Application implements ReactApplication {
     Smartech smartech = Smartech.getInstance(new WeakReference<>(this.getApplicationContext()));
     smartech.initializeSdk(this);
 
+
+
     smartech.setDebugLevel(SMTDebugLevel.Level.VERBOSE);
 
       HSLLogLevel.all.setEnabled(true);
@@ -116,7 +118,7 @@ public class MainApplication extends Application implements ReactApplication {
           int parentsLayerCount = Integer.parseInt(values[0]);
           int childLayerIndex;
           if (values.length < 2 || values[1].isEmpty()) {
-            childLayerIndex = 0;
+            childLayerIndex = 1;
           } else {
             childLayerIndex = Integer.parseInt(values[1]);
           }

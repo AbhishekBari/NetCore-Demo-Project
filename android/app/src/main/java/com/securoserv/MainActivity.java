@@ -20,8 +20,13 @@ public class  MainActivity extends ReactActivity {
     Log.d("pairing", "inside the oncreate");
     Hansel.pairTestDevice(getIntent().getDataString());
     Log.d("pairing", "Paired code called");
+
+    SmartechPushReactNativeModule.init(getIntent());
+
     // app inbox
     SmartechPushReactNativeModule.init(getIntent());
+
+
 
 
   }

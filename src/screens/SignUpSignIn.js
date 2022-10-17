@@ -1,5 +1,5 @@
-import {View, Text, Image, KeyboardAvoidingView} from 'react-native';
-import React, {useState} from 'react';
+import {View, Text, Image, KeyboardAvoidingView, Linking} from 'react-native';
+import React, {useState, useEffect} from 'react';
 import scale, {height, width} from '../assets/Scale';
 import HeaderComponent from '../components/Header/HeaderComponent';
 import {images} from '../assets/ImagesURI';
@@ -8,6 +8,34 @@ import Input from '../components/TextInput/Input';
 
 const SignUpSignIn = ({navigation}) => {
   const [textInputPhone, setTextInputPhone] = useState('');
+  const [url, setUrl] = useState('');
+
+  console.log("url from deeplink" ,url);
+
+  if(!url == "")
+  {
+    Linking.openURL(url)
+  }
+
+
+  const SmartechReact = require('smartech-base-react-native');
+  const SmartPush = require('smartech-push-react-native');
+  const Smartech = require('smartech-base-react-native');
+
+  useEffect(() => {
+    console.log('inside the useEffect');
+    SmartPush.addListener(Smartech.SmartPushDeeplinkNotification, handleDeeplinkWithPayload);
+    SmartPush.getDeepLinkUrl(function (_response) 
+    {  console.log('getDeepLinkUrl Initial Deeplink Response ', _response.deeplink);
+    setUrl(_response.deeplink);
+      // Handling the SDK Deeplink Callback.  
+     
+      
+    })
+    const handleDeeplinkWithPayload = (deeplinkdata) => {  };
+  },[]);
+  
+  
 
   const checkTextInput = () => {
     if (!textInputPhone.trim()) {
@@ -21,6 +49,11 @@ const SignUpSignIn = ({navigation}) => {
       merge: true,
     })
   }
+
+
+  
+
+
 
   return (
     <View style={{flex: 1, backgroundColor: 'black'}}>

@@ -15,3 +15,16 @@
 -keep class * extends io.hansel.**.* {*;}
 
 -keep class com.netcore.views.** { *; }
+
+# Smartech Base SDK
+-dontwarn com.netcore.android.**
+-keep class com.netcore.android.**{*;}
+-keep class * implements com.netcore.android.**.* {*;}
+-keep class * extends com.netcore.android.**.* {*;}
+
+
+# Smartech Push SDK
+-dontwarn com.netcore.android.smartechpush.**
+-keep class com.netcore.android.smartechpush.**{*;}
+-keep class * implements com.netcore.android.smartechpush.**.* {*;}
+-keep class * extends com.netcore.android.smartechpush.**.* {*;}
