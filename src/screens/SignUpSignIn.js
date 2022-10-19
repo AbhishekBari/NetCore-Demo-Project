@@ -21,6 +21,9 @@ const SignUpSignIn = ({navigation}) => {
   const SmartechReact = require('smartech-base-react-native');
   const SmartPush = require('smartech-push-react-native');
   const Smartech = require('smartech-base-react-native');
+  const SmartechAppInboxReact = require('smartech-appinbox-react-native');
+
+
 
   useEffect(() => {
     console.log('inside the useEffect');
@@ -34,6 +37,28 @@ const SignUpSignIn = ({navigation}) => {
     })
     const handleDeeplinkWithPayload = (deeplinkdata) => {  };
   },[]);
+
+  // useEffect(() => {
+  //   SmartechAppInboxReact.getAppInboxCategoryList((error, categoryList) => {
+  //     let categoryListData = (Platform.OS === 'android') ? JSON.parse(categoryList) : categoryList
+  //     console.log('category data', categoryList);
+  //     console.log('category list data', categoryListData);
+  // });
+  // },[])
+
+  // useEffect(() => {
+
+  //   SmartechAppInboxReact.getAppInboxMessagesByApiCall(messageLimit,messageType,(Platform.OS === 'android') ? JSON.stringify(categoryList) : categoryList,(error, appInboxMessages) => {
+       
+  //   });
+
+  //   SmartechAppInboxReact.getAppInboxMessages(messageType , (error, appInboxMessages) => {
+  //     let appInboxData = (Platform.OS === 'android') ? JSON.parse(appInboxMessages) : appInboxMessages
+  //     console.log('appInboxData data', appInboxMessages);
+  //     console.log('appInboxData list data', appInboxData);
+  // });
+  // },[])
+
   
   
 

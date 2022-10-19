@@ -81,11 +81,15 @@ public class MainApplication extends Application implements ReactApplication {
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
 
     Smartech smartech = Smartech.getInstance(new WeakReference<>(this.getApplicationContext()));
+
     smartech.initializeSdk(this);
+    Log.i("initilaze", "smartech sdk" );
 
 
 
     smartech.setDebugLevel(SMTDebugLevel.Level.VERBOSE);
+
+    Log.i("initilaze", "setting smt logs");
 
       HSLLogLevel.all.setEnabled(true);
       HSLLogLevel.mid.setEnabled(true);
@@ -102,6 +106,8 @@ public class MainApplication extends Application implements ReactApplication {
       @Override
       public void onViewFound(final View view, String nativeID) {
         if (nativeID.equals("hansel_ignore_view_overlay") || nativeID.equals("hansel_dynamic_view")) {
+          Log.i("initilaze", "igonore container");
+          Log.d("coming in ignore", "hansel main");
           if (view.getTag() == null) {
             handler.postDelayed(new Runnable() {
               @Override
@@ -118,11 +124,15 @@ public class MainApplication extends Application implements ReactApplication {
           int parentsLayerCount = Integer.parseInt(values[0]);
           int childLayerIndex;
           if (values.length < 2 || values[1].isEmpty()) {
+            Log.i("initilaze", "igonore container value");
+            Log.d("coming in ignore", "hansel");
             childLayerIndex = 1;
           } else {
             childLayerIndex = Integer.parseInt(values[1]);
           }
           HanselRn.setHanselIgnoreViewTag(view, parentsLayerCount, childLayerIndex);
+          Log.i("initilaze", "igonore container parentsLayerCount");
+
         } else if (nativeID.equals("hansel_dynamic_view")) {
           String[] values = view.getTag().toString().split("#");
           String hanselIndex = values[0];

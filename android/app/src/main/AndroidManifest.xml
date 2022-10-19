@@ -10,9 +10,12 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
+<!--        <meta-data-->
+<!--            android:name="SMT_APP_ID"-->
+<!--            android:value="dea9c405489ed0fbbd0b12acd0dc0f89" />-->
         <meta-data
             android:name="SMT_APP_ID"
-            android:value="dea9c405489ed0fbbd0b12acd0dc0f89" />
+            android:value="68d2d03a2fc84eadbe58b847aab92881" />
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"

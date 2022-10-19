@@ -75,13 +75,13 @@ const AppNavigator = () => {
         animation="fade"
         >
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="OnBoarding" component={MyTabs} />
+        <Stack.Screen name="OnBoarding" component={OnBoarding} />
         <Stack.Screen name="HomeScreen" component={MyDrawer} />
 
         <Stack.Screen name="SignUpSignIn" component={SignUpSignIn} />
       </Stack.Navigator>
     </NavigationContainer>
-    <View style = {{flex:1, backgroundColor:'grey'}}></View>
+    {/* <View style = {{flex:1, backgroundColor:'grey'}}></View> */}
     </View>
     </SafeAreaProvider>
   
